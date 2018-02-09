@@ -1,0 +1,20 @@
+{
+    "name": "pqrs/checkrss",
+    "description": "Check rss feeds for new items",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "pqrs",
+            "email": "pqrs@pqrs.es"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.3.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "CheckRSS": "src/"
+        }
+    }
+}
