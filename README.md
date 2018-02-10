@@ -1,5 +1,7 @@
 # CheckRSS
 
+**NOTE: If you happen to arrive to this repo, please have in mind that CheckRSS is in early development stages**
+
 ## What CheckRSS does
 
 CheckRSS loads an RSS file and checks if there are new items since the last time it was checked. It is intended to be used with cron jobs.
@@ -32,8 +34,6 @@ An example of the item returned would be:
 Finds wether an item's Id is new (returns true) or not (false).
 
 It stores the last item Id in a file (lastrss.txt) to compare with in new checks. Directory must have write permissions (666) if you call it through your web browser.
-
-**NOTE: If you happen to arrive to this repo, please have in mind that CheckRSS is in early development stages**
 
 ## Samples
 
