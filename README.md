@@ -1,5 +1,7 @@
 # CheckRSS
 
+Check RSS feeds for new items
+
 **NOTE: If you happen to arrive to this repo, please have in mind that CheckRSS is in early development stages**
 
 ## What CheckRSS does
