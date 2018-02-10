@@ -61,4 +61,8 @@ Writes the text line passed as an argument to a log file called cron.log. Workin
 
 ## Prerequisites
 
-Tested with PHP 7.0.12
+Tested with PHP 7.0.12 but it will probably run without problems in 5.x PHP versions.
+
+## Author notes
+
+[...]
