@@ -2,8 +2,6 @@
 
 namespace CheckRSS;
 
-function pepa() { echo "olepepa"; }
-
 class Check
 {
     public static function helloworld()

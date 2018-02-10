@@ -8,7 +8,7 @@ Check RSS feeds for new items
 
 CheckRSS loads an RSS file and checks if there are new items since the last time it was checked. It is intended to be used with cron jobs.
 
-It only checks the last (newest) item. If there are two or more new items between program runs you'll only get the last one, losing the others. The publication periodicity depends of the source so it's up to you running the program as often as necessary.
+It only checks the last (newest) item. If there are two or more new items between program runs you'll only get the last one, losing the others. The publication frequency depends of the source so it's up to you running the program as often as necessary.
 
 
 ## How CheckRSS works
@@ -36,7 +36,9 @@ SimpleXMLElement Object
 
 Finds wether an item's Id is new (returns true) or not (false).
 
-It stores the last item Id in a file (lastrss.txt) to compare with in new checks. Directory must have write permissions (666) if you call it through your web browser.
+You must pass an element that is unique. [guid] or [pubDate] use to be unique.
+
+It stores the last item Id in a file (lastrss.txt) to compare with in new checks. Working directory must have write permissions (666) if you call it through your web browser.
 
 ## Samples
 
@@ -45,3 +47,7 @@ It stores the last item Id in a file (lastrss.txt) to compare with in new checks
 ## Installation
 
 [...]
+
+## Prerequisites
+
+Tested with PHP 7.0.12
