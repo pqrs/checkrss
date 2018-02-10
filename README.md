@@ -24,7 +24,8 @@ An example of the item returned would be:
     [pubDate] => Sat, 10 Feb 2018 15:17:00 GMT
     [link] => https://www.nbcnews.com/storyline/hurricane-irma/...
     [description] => Hurricane Irma served as a knockout punch for many of Florida's...
-)```
+)
+```
 
 **boolean isNewItem( string $itemId )**
 
