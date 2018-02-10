@@ -6,6 +6,10 @@ namespace Composer\Autoload;
 
 class ComposerStaticInitbf4482a851df9181f79093246bc2740d
 {
+    public static $files = array (
+        '31a7cf013d73a96bec3a5977a94ebccd' => __DIR__ . '/..' . '/shark/simple_html_dom/simple_html_dom.php',
+    );
+
     public static $prefixesPsr0 = array (
         'C' => 
         array (
@@ -16,10 +20,16 @@ class ComposerStaticInitbf4482a851df9181f79093246bc2740d
         ),
     );
 
+    public static $classMap = array (
+        'simple_html_dom' => __DIR__ . '/..' . '/shark/simple_html_dom/simple_html_dom.php',
+        'simple_html_dom_node' => __DIR__ . '/..' . '/shark/simple_html_dom/simple_html_dom.php',
+    );
+
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
             $loader->prefixesPsr0 = ComposerStaticInitbf4482a851df9181f79093246bc2740d::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitbf4482a851df9181f79093246bc2740d::$classMap;
 
         }, null, ClassLoader::class);
     }
