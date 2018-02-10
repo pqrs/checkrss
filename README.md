@@ -19,7 +19,8 @@ Given a feed URL as its only parameter, this functions loads the feed and return
 
 An example of the item returned would be:
 
-```SimpleXMLElement Object
+```
+SimpleXMLElement Object
 (
     [guid] => https://www.nbcnews.com/storyline/hurricane-irma/...
     [title] => One-two punch of disease and Irma has left Florida citrus reeling
