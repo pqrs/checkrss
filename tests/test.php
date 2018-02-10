@@ -26,7 +26,11 @@ $last_itemId = (string)$last_item->guid;
 // Checks if the item is new by comparing the new [guid] with the last stored [guid].
 if (Check::isNewItem($last_itemId)) {
 
- 	echo "There's a new item in " . RSS_FEED . PHP_EOL;
+ 	echo "There's a new item in " . RSS_FEED . PHP_EOL . PHP_EOL;
+
+ 	echo "Title: " 			. $last_item->title 		. PHP_EOL;
+ 	echo "Description: " 	. $last_item->description 	. PHP_EOL;
+ 	echo "Link: " 			. $last_item->link 			. PHP_EOL;
 
 } else {
 

@@ -2,6 +2,8 @@
 
 namespace CheckRSS;
 
+function pepa() { echo "olepepa"; }
+
 class Check
 {
     public static function helloworld()
@@ -54,10 +56,5 @@ class Check
 
     }
 
-
-    public static function a($itemId)
-    {
-
-    }
 }
 
