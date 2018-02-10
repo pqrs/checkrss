@@ -32,8 +32,12 @@ if (Check::isNewItem($last_itemId)) {
  	echo "Description: " 	. $last_item->description 	. PHP_EOL;
  	echo "Link: " 			. $last_item->link 			. PHP_EOL;
 
+ 	Check::WriteLog($last_item->title);
+
 } else {
 
 	echo "There isn't a new item in " . RSS_FEED . PHP_EOL;
+
+ 	Check::WriteLog("No new items found in rss feed");
 
 }

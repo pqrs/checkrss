@@ -54,5 +54,28 @@ class Check
 
     }
 
+
+    public static function WriteLog($logline) {
+
+    	$logfile = $_SERVER['DOCUMENT_ROOT'] . dirname($_SERVER['PHP_SELF']) . "/cron.log";
+
+    	// $_SERVER['DOCUMENT_ROOT'] has a trailing slash when used with Apache so we remove it if it is present
+    	$logfile = str_replace ("//", "/", $logfile);
+
+    	if (file_exists($logfile)) {
+
+    		file_put_contents($logfile, date("d/m/Y H:i") . " $logline" . PHP_EOL, FILE_APPEND );
+
+    	} else {
+
+    		file_put_contents($logfile, date("d/m/Y H:i") . " $logline" . PHP_EOL );
+
+    		chmod($logfile, 0666);
+
+    	}
+
+
+    }
+
 }
 

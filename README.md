@@ -13,9 +13,15 @@ It only checks the last (newest) item. If there are two or more new items betwee
 
 ## How CheckRSS works
 
-CheckRSS provides two functions: getLastItem() and isNewItem().
+CheckRSS provides two functions: getLastItem(), isNewItem() and WriteLog().
 
-**object getLastitem( string $feed_url )**
+With these three functions you can:
+
+1. Obtain the last item in an rss feed.
+1. Check if that last item is the same that the last time it was checked or a new one.
+1. Write a log everytime the program is run.
+
+#### object getLastitem( string $feed_url )
 
 Given a feed URL as its only parameter, this functions loads the feed and returns its last (newest) item.
 
@@ -32,13 +38,18 @@ SimpleXMLElement Object
 )
 ```
 
-**boolean isNewItem( string $itemId )**
+#### boolean isNewItem( string $itemId )
 
 Finds wether an item's Id is new (returns true) or not (false).
 
 You must pass an element that is unique. [guid] or [pubDate] use to be unique.
 
 It stores the last item Id in a file (lastrss.txt) to compare with in new checks. Working directory must have write permissions (666) if you call it through your web browser.
+
+
+#### WriteLog( string $logline )
+
+Writes the text line passed as an argument to a log file called cron.log. Working directory must have write permissions (666) if you call it through your web browser.
 
 ## Samples
 
