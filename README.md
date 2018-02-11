@@ -57,7 +57,9 @@ Writes the text line passed as an argument to a log file called cron.log. Workin
 
 ## Installation
 
-[...]
+```
+composer install require pqrs/checkrss=dev-master
+```
 
 ## Prerequisites
 
