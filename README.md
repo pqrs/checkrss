@@ -63,9 +63,7 @@ composer install require pqrs/checkrss=dev-master
 
 ## Prerequisites
 
-PHP 7.0.12
-
-But it will probably run without problems in PHP 5.x versions.
+PHP 5.3.0
 
 ## Author notes
 
