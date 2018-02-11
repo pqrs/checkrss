@@ -10,6 +10,28 @@ class ComposerStaticInitbf4482a851df9181f79093246bc2740d
         '31a7cf013d73a96bec3a5977a94ebccd' => __DIR__ . '/..' . '/shark/simple_html_dom/simple_html_dom.php',
     );
 
+    public static $prefixLengthsPsr4 = array (
+        'v' => 
+        array (
+            'voku\\helper\\' => 12,
+        ),
+        'S' => 
+        array (
+            'Symfony\\Component\\CssSelector\\' => 30,
+        ),
+    );
+
+    public static $prefixDirsPsr4 = array (
+        'voku\\helper\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/voku/simple_html_dom/src/voku/helper',
+        ),
+        'Symfony\\Component\\CssSelector\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/css-selector',
+        ),
+    );
+
     public static $prefixesPsr0 = array (
         'C' => 
         array (
@@ -28,6 +50,8 @@ class ComposerStaticInitbf4482a851df9181f79093246bc2740d
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
+            $loader->prefixLengthsPsr4 = ComposerStaticInitbf4482a851df9181f79093246bc2740d::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitbf4482a851df9181f79093246bc2740d::$prefixDirsPsr4;
             $loader->prefixesPsr0 = ComposerStaticInitbf4482a851df9181f79093246bc2740d::$prefixesPsr0;
             $loader->classMap = ComposerStaticInitbf4482a851df9181f79093246bc2740d::$classMap;
 
