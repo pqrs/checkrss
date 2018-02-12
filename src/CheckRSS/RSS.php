@@ -2,7 +2,7 @@
 
 namespace CheckRSS;
 
-class Check
+class RSS
 {
     public static function helloworld()
     {
