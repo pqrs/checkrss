@@ -61,6 +61,20 @@ Writes the text line passed as an argument to a log file called cron.log. Workin
 composer install require pqrs/checkrss=dev-master
 ```
 
+Alternatively, add the dependency directly to your composer.json file:
+
+```
+"require": {
+    "pqrs/checkrss": "dev-master"
+}
+```
+
+Add this to your program:
+
+``` php
+require_once __DIR__ . '/vendor/autoload.php';   // Autoload files using Composer autoload
+```
+
 ## Prerequisites
 
 PHP 5.3.0
