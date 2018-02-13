@@ -65,11 +65,15 @@ composer install require pqrs/checkrss=dev-master
 
 PHP 5.3.0
 
-## Author notes
+## Credits
+
+**Alvaro Piqueras** - [pqrs](https://github.com/pqrs)
 
 This is a cleanup of a dirty code I wrote some time ago. Also it's my first try with GitHub, Composer and Packagist so if you find some mistakes or have some tips for me, I would be more than glad to hear you.
 
 I hope this code suites your needs.
 
-Thanks.
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
