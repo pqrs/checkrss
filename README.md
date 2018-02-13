@@ -117,6 +117,11 @@ You can find some uses for these functions in [tests folder](tests).
 PHP 5.3.0
 
 
+## Contributing
+
+Contributions are of course very welcome!
+
+
 ## Credits
 
 **Copyright © 2018 Alvaro Piqueras** - [pqrs](https://github.com/pqrs)
