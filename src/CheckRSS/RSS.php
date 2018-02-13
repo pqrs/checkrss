@@ -81,7 +81,7 @@ class RSS
     }
 
 
-    public static function isNewItem($itemId)
+    public static function isNewItem($item_id)
     {
     	$dir = $_SERVER['DOCUMENT_ROOT'] . dirname($_SERVER['PHP_SELF']);
 
@@ -92,7 +92,7 @@ class RSS
 
     		$last_storedId = file_get_contents($dir."/lastrss.txt");
 
-    		if($last_storedId == $itemId) {
+    		if($last_storedId == $item_id) {
 
     			return false;		// There isn't a new element in the feed
 

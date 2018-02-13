@@ -42,7 +42,20 @@ This method gets **all the items** published in the rss feed and returns an obje
 ``` php
 $rss = new RSS;
 
-$items = $rss->getItems(RSS_FEED);
+$items = $rss->getItems("http://feeds.nbcnews.com/feeds/topstories");
+```
+
+An example of the object returned would be:
+
+```
+SimpleXMLElement Object
+(
+    [guid] => https://www.nbcnews.com/storyline/hurricane-irma/...
+    [title] => One-two punch of disease and Irma has left Florida citrus reeling
+    [pubDate] => Sat, 10 Feb 2018 15:17:00 GMT
+    [link] => https://www.nbcnews.com/storyline/hurricane-irma/...
+    [description] => Hurricane Irma served as a knockout punch for many of Florida's...
+)
 ```
 
 ### method getNewItems($items)
@@ -55,7 +68,7 @@ Returns an object with just the **new items**.
 $rss = new RSS;
 
 // Gets all the items published in the rss feed and stores them in $items
-$items = $rss->getItems(RSS_FEED);
+$items = $rss->getItems("http://feeds.nbcnews.com/feeds/topstories");
 
 // Checks which items are new since last check
 if ($newitems = $rss->getNewItems($items) ) {
@@ -70,18 +83,29 @@ if ($newitems = $rss->getNewItems($items) ) {
         echo $value->guid           . PHP_EOL;
         echo $value->link           . PHP_EOL. PHP_EOL;
 
-        $rss->WriteLog($value->title);
-
     }
 
 } else {
 
     echo "There'are no new items in RSS feed";
 
-    $rss->WriteLog("No new items found in RSS feed");
-
 }
 ```
+
+### method storeLastItemID($item_id)
+
+**Internal use**. This method writes the last read item id in a file to compare it in future checks.
+
+
+### method isNewItem($item_id)
+
+**Internal use**. This method compares the last read item id with the last stored one in previous check.
+
+
+### method WriteLog($logline)
+
+A simple method to write a log file everytime a check is made.
+
 
 ## Examples
 
