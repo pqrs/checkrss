@@ -81,7 +81,7 @@ PHP 5.3.0
 
 ## Credits
 
-**Alvaro Piqueras** - [pqrs](https://github.com/pqrs)
+**Copyright © 2018 Alvaro Piqueras** - [pqrs](https://github.com/pqrs)
 
 This is a cleanup of a dirty code I wrote some time ago. Also it's my first try with GitHub, Composer and Packagist so if you find some mistakes or have some tips for me, I would be more than glad to hear you.
 
