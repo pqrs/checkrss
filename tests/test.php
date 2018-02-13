@@ -29,7 +29,7 @@ if ($newitems = $rss->getNewItems($items) ) {
         echo $value->title          . PHP_EOL;
         echo $value->description    . PHP_EOL;
         echo $value->guid           . PHP_EOL;
-        echo $value->link           . PHP_EOL. PHP_EOL;
+        echo $value->link           . PHP_EOL . PHP_EOL;
 
         $rss->WriteLog($value->title);
 
@@ -37,7 +37,7 @@ if ($newitems = $rss->getNewItems($items) ) {
 
 } else {
 
-    echo "There'are no new items in RSS feed";
+    echo "There're no new items in RSS feed" . PHP_EOL;
 
     $rss->WriteLog("No new items found in RSS feed");
 
