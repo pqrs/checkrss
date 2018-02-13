@@ -2,9 +2,13 @@
 
 Check RSS feeds for new items
 
-CheckRSS loads an RSS file and checks if there are new items since the last time it was checked. It is intended to be used with cron jobs.
+CheckRSS provides some methods to:
 
-It only checks the last (newest) item. If there are two or more new items between program runs you'll only get the last one, losing the others. The publication frequency depends of the source so it's up to you running the program as often as necessary.
+* Get all the items in a RSS feed
+* Check which of those items is/are new since last check
+* Write a log every time a checking for new items is run
+
+It is recommended using CheckRSS with a cron job so you can get new items periodically, although you can run it manually too.
 
 
 ## Installation
@@ -32,48 +36,12 @@ use CheckRSS\RSS;
 
 ## Usage
 
-CheckRSS provides two functions: getLastItem(), isNewItem() and WriteLog().
 
-With these three functions you can:
-
-1. Obtain the last item in an rss feed.
-1. Check if that last item is the same that the last time it was checked or a new one.
-1. Write a log everytime the program is run.
-
-#### object getLastitem( string $feed_url )
-
-Given a feed URL as its only parameter, this functions loads the feed and returns its last (newest) item.
-
-An example of the item returned would be:
-
-```
-SimpleXMLElement Object
-(
-    [guid] => https://www.nbcnews.com/storyline/hurricane-irma/...
-    [title] => One-two punch of disease and Irma has left Florida citrus reeling
-    [pubDate] => Sat, 10 Feb 2018 15:17:00 GMT
-    [link] => https://www.nbcnews.com/storyline/hurricane-irma/...
-    [description] => Hurricane Irma served as a knockout punch for many of Florida's...
-)
-```
-
-#### boolean isNewItem( string $itemId )
-
-Finds wether an item's Id is new (returns true) or not (false).
-
-You must pass an element that is unique. [guid] or [pubDate] use to be unique.
-
-It stores the last item Id in a file (lastrss.txt) to compare with in new checks. Working directory must have write permissions (666) if you call it through your web browser.
-
-
-#### WriteLog( string $logline )
-
-Writes the text line passed as an argument to a log file called cron.log. Working directory must have write permissions (666) if you call it through your web browser.
 
 
 ## Examples
 
-[...]
+You can find some uses for these functions in [tests folder](tests).
 
 
 ## Prerequisites

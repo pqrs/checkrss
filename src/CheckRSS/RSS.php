@@ -4,19 +4,82 @@ namespace CheckRSS;
 
 class RSS
 {
-    public static function helloworld()
+    public $title;
+    public $description;
+    public $link;
+
+
+    public static function getItems($feed_url)
     {
-        return 'Hello World!';
+        $rss = simplexml_load_file($feed_url);          // Loads the rss feed into $rss
+
+        $items = $rss->channel->item;                   // Assigns the items to $items
+
+        return $items;                                  // Returns the last item of the rss feed
     }
 
-    public static function getLastItem($feed_url)
+
+    public static function getNewItems($items)
     {
-        $rss = simplexml_load_file($feed_url);		// Loads the rss feed into $rss
+        $i = 0;
 
-        $items = $rss->channel->item;				// Assigns the items to $items
+        $newitems[0] = null;
 
-        return $items[0];							// Returns the last item of the rss feed
+        foreach ($items as $key => $value) {
+
+            $item_id = (string)$value->guid;
+
+            if (RSS::isNewItem($item_id)) {
+
+                $newitems[$i] = new RSS;
+
+                $newitems[$i]->title        = $value->title;
+                $newitems[$i]->description  = $value->description;
+                $newitems[$i]->link         = $value->link;
+                $newitems[$i]->guid         = $value->guid;
+
+                $i++;
+
+            } else break;
+
+        }
+
+        if ( $newitems[0] ) {
+
+            RSS::storeLastItemID($newitems[0]->guid);
+
+            return $newitems;
+
+        } else {
+
+            return false;
+
+        }
+
+
     }
+
+
+    public static function storeLastItemID($item_id)
+    {
+        $dir = $_SERVER['DOCUMENT_ROOT'] . dirname($_SERVER['PHP_SELF']);
+
+        // $_SERVER['DOCUMENT_ROOT'] has a trailing slash when used with Apache so we remove it if it is present
+        $dir = str_replace ("//", "/", $dir);
+
+        if (file_exists($dir."/lastrss.txt")) {
+
+            file_put_contents($dir."/lastrss.txt", $item_id);
+
+        } else {
+
+            file_put_contents($dir."/lastrss.txt", $item_id);
+            chmod($dir."/lastrss.txt", 0666);
+
+        }
+
+    }
+
 
     public static function isNewItem($itemId)
     {
@@ -35,18 +98,12 @@ class RSS
 
     		} else {
 
-    			file_put_contents($dir."/lastrss.txt", $itemId);
-
     			return true;		// There's a new element in the feed
     		}
 
     	}
 
     	else {
-
-    		file_put_contents($dir."/lastrss.txt", $itemId);
-
-    		chmod($dir."/lastrss.txt", 0666);
 
     		return true;			// There's a new element in the feed
 

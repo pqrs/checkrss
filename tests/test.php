@@ -15,31 +15,30 @@ use CheckRSS\RSS;
 
 $rss = new RSS;
 
-// Gets the last item published in the rss feed and stores it in $last_item
-$last_item = $rss->getLastItem(RSS_FEED);
+// Gets all the items published in the rss feed and stores them in $items
+$items = $rss->getItems(RSS_FEED);
 
-// $last_item is an object that may have many different elements. You must now choose an element that has
-// unique values for every item. Usually [guid] or [pubDate] elements, although they are optional. CheckRSS
-// won't work it there isn't a unique element for every item.
+// Checks which items are new since last check
+if ($newitems = $rss->getNewItems($items) ) {
 
-// In this case we get our unique element from [guid]
-$last_itemId = (string)$last_item->guid;
+    // Prints new items
+    echo "New items found:" . PHP_EOL . PHP_EOL;
 
-// Checks if the item is new by comparing the new [guid] with the last stored [guid].
-if ($rss->isNewItem($last_itemId)) {
+    foreach ($newitems as $value) {
 
- 	echo "There's a new item in " . RSS_FEED . PHP_EOL . PHP_EOL;
+        echo $value->title          . PHP_EOL;
+        echo $value->description    . PHP_EOL;
+        echo $value->guid           . PHP_EOL;
+        echo $value->link           . PHP_EOL. PHP_EOL;
 
- 	echo "Title: " 			. $last_item->title 		. PHP_EOL;
- 	echo "Description: " 	. $last_item->description 	. PHP_EOL;
- 	echo "Link: " 			. $last_item->link 			. PHP_EOL;
+        $rss->WriteLog($value->title);
 
- 	$rss->WriteLog($last_item->title);
+    }
 
 } else {
 
-	echo "There isn't a new item in " . RSS_FEED . PHP_EOL;
+    echo "There'are no new items in RSS feed";
 
- 	$rss->WriteLog("No new items found in rss feed");
+    $rss->WriteLog("No new items found in RSS feed");
 
 }
