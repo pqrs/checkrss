@@ -2,16 +2,35 @@
 
 Check RSS feeds for new items
 
-**NOTE: If you happen to arrive to this repo, please have in mind that CheckRSS is in early development stages**
-
-## What CheckRSS does
-
 CheckRSS loads an RSS file and checks if there are new items since the last time it was checked. It is intended to be used with cron jobs.
 
 It only checks the last (newest) item. If there are two or more new items between program runs you'll only get the last one, losing the others. The publication frequency depends of the source so it's up to you running the program as often as necessary.
 
 
-## How CheckRSS works
+## Installation
+
+```
+composer install require pqrs/checkrss=dev-master
+```
+
+Alternatively, add the dependency directly to your composer.json file:
+
+```
+"require": {
+    "pqrs/checkrss": "dev-master"
+}
+```
+
+Add this to your program:
+
+``` php
+require_once __DIR__ . '/vendor/autoload.php';   // Autoload files using Composer autoload
+
+use CheckRSS\RSS;
+```
+
+
+## Usage
 
 CheckRSS provides two functions: getLastItem(), isNewItem() and WriteLog().
 
@@ -51,33 +70,16 @@ It stores the last item Id in a file (lastrss.txt) to compare with in new checks
 
 Writes the text line passed as an argument to a log file called cron.log. Working directory must have write permissions (666) if you call it through your web browser.
 
-## Samples
+
+## Examples
 
 [...]
 
-## Installation
-
-```
-composer install require pqrs/checkrss=dev-master
-```
-
-Alternatively, add the dependency directly to your composer.json file:
-
-```
-"require": {
-    "pqrs/checkrss": "dev-master"
-}
-```
-
-Add this to your program:
-
-``` php
-require_once __DIR__ . '/vendor/autoload.php';   // Autoload files using Composer autoload
-```
 
 ## Prerequisites
 
 PHP 5.3.0
+
 
 ## Credits
 
@@ -86,6 +88,7 @@ PHP 5.3.0
 This is a cleanup of a dirty code I wrote some time ago. Also it's my first try with GitHub, Composer and Packagist so if you find some mistakes or have some tips for me, I would be more than glad to hear you.
 
 I hope this code suites your needs.
+
 
 ## License
 
