@@ -33,10 +33,10 @@ class RSS
 
                 $newitems[$i] = new RSS;
 
-                $newitems[$i]->title        = $value->title;
-                $newitems[$i]->description  = $value->description;
-                $newitems[$i]->link         = $value->link;
-                $newitems[$i]->guid         = $value->guid;
+                $newitems[$i]->title        = (string)$value->title;
+                $newitems[$i]->description  = (string)$value->description;
+                $newitems[$i]->link         = (string)$value->link;
+                $newitems[$i]->guid         = (string)$value->guid;
 
                 $i++;
 
